@@ -3,11 +3,29 @@ const message = document.querySelector(".message");
 const gamearea = document.querySelector(".gamearea");
 const button = document.querySelector("button");
 
-button.addEventListener("click",function() {
-    console.log("works");
-});
+let gameClicks = [];
+let userClicks = [];
+let inPlay = false;
+let playNum = 1;
 
 window.addEventListener("load",setup);
+
+button.addEventListener("click",function() {
+    if(!inPlay) {
+        player();
+    }
+})
+
+function player() {
+    button.disabled = true;
+    gameClicks = [];
+    userClicks = [];
+    runSequence();
+}
+
+function runSequence() {
+    inPlay = true;
+}
 
 function setup() {
     console.log("Page loaded");
@@ -23,8 +41,13 @@ function setup() {
 }
 
 function checkAnswer(e) {
-    let el = e.target;
-    console.log(el.myColor);
+    if(inPlay) {
+        let el = e.target;
+        console.log(el.myColor);
+        userClicks.push(el.myColor);
+    }
+
+    console.log(userClicks);
 }
 
 function eleFactory(elType) {
