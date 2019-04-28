@@ -41,12 +41,14 @@ function setup() {
 }
 
 function checkAnswer(e) {
-    if(inPlay) {
+    if (inPlay) {
         let el = e.target;
-        console.log(el.myColor);
         userClicks.push(el.myColor);
+        el.style.opacity= "1";
+        setTimeout(function() {
+            el.style.opacity = "0.5";
+        }, 500);
     }
-
     console.log(userClicks);
 }
 
