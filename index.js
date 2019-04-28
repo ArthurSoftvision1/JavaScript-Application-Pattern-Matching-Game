@@ -6,14 +6,14 @@ const button = document.querySelector("button");
 let gameClicks = [];
 let userClicks = [];
 let inPlay = false;
-let playNum = 1;
+let playNum = 5;
 
 window.addEventListener("load", setup);
 button.addEventListener("click", function () {
     if (!inPlay) {
         player();
     }
-})
+});
 
 function player() {
     button.disabled = true;
@@ -34,8 +34,12 @@ function runSequence(num) {
     gameClicks.push(gameColors[randomNum]);
     console.log(gameClicks);
     squares[randomNum].style.opacity = "1";
+
     setTimeout(function () {
         squares[randomNum].style.opacity = "0.5";
+        setTimeout(function () {
+            runSequence(num);
+        }, 100);
     }, 500);
 }
 
