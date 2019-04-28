@@ -70,6 +70,10 @@ function checkAnswer(e) {
         if(userClicks.length == gameClicks.length) {
             inPlay = false;
             endGame();
+            let centerBtn = document.querySelector(".center");
+            centerBtn.addEventListener("click", function(){
+                gameMessage.innerHTML = "";
+            });
         }
     }
     console.log(userClicks);
