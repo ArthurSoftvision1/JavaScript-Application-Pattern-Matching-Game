@@ -6,7 +6,7 @@ const button = document.querySelector("button");
 let gameClicks = [];
 let userClicks = [];
 let inPlay = false;
-let playNum = 2;
+let playNum = 1;
 
 window.addEventListener("load", setup);
 button.addEventListener("click", function () {
@@ -17,6 +17,8 @@ button.addEventListener("click", function () {
 
 function player() {
     button.disabled = true;
+    button.style.display = "none";
+    messager("Match Pattern");
     gameClicks = [];
     userClicks = [];
     runSequence(playNum);
@@ -72,14 +74,19 @@ function checkAnswer(e) {
     console.log(userClicks);
 }
 
+function messager(mes) {
+    message.innerHTML = mes;
+}
+
 function endGame() {
-    console.log("game over");
+    console.log("Game over");
     button.disabled = false;
+    button.style.display = "block";
     if(userClicks.toString() == gameClicks.toString()) {
         playNum++;
-        console.log("correct");
-    }else{
-        console.log("not correct");
+        messager("Nice! Try the next level = " + playNum);
+    } else {
+        messager("You are wrong! Try again!");
     }
 }
 
