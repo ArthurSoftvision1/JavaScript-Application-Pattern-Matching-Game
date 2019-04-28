@@ -1,5 +1,6 @@
 const gameColors = ["red", "blue", "green", "yellow"];
 const message = document.querySelector(".message");
+const gameMessage = document.querySelector(".game-message");
 const gamearea = document.querySelector(".gamearea");
 const button = document.querySelector("button");
 
@@ -30,19 +31,19 @@ function runSequence(num) {
     if (num < 0) {
         inPlay = true;
         return;
-    }
-
-    let randomNum = Math.floor(Math.random() * gameColors.length);
-    console.log(squares[randomNum]);
-    gameClicks.push(gameColors[randomNum]);
-    console.log(gameClicks);
-    squares[randomNum].style.opacity = "1";
-    setTimeout(function () {
-        squares[randomNum].style.opacity = "0.5";
+    } else {
+        let randomNum = Math.floor(Math.random() * gameColors.length);
+        console.log(squares[randomNum]);
+        gameClicks.push(gameColors[randomNum]);
+        console.log(gameClicks);
+        squares[randomNum].style.opacity = "1";
         setTimeout(function () {
-            runSequence(num);
-        }, 100);
-    }, 500);
+            squares[randomNum].style.opacity = "0.5";
+            setTimeout(function () {
+                runSequence(num);
+            }, 100);
+        }, 500);
+    }
 }
 
 function setup() {
@@ -66,7 +67,7 @@ function checkAnswer(e) {
         setTimeout(function () {
             el.style.opacity = "0.5";
         }, 500);
-        if(userClicks.length == gameClicks.length){
+        if(userClicks.length == gameClicks.length) {
             inPlay = false;
             endGame();
         }
@@ -79,9 +80,10 @@ function messager(mes) {
 }
 
 function endGame() {
-    console.log("Game over");
+    gameMessage.innerHTML = "Game over";
     button.disabled = false;
     button.style.display = "block";
+    button.classList = "center";
     if(userClicks.toString() == gameClicks.toString()) {
         playNum++;
         messager("Nice! Try the next level = " + playNum);
