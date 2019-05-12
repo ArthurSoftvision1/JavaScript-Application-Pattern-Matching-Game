@@ -1,4 +1,10 @@
-const gameColors = ["red", "blue", "green", "yellow"];
+const gameColors = [
+    "red", "blue", "green", "yellow", "pink", "lightblue", "#FF9966", "#A52A2A", "#DA1884", "#C19A6B", "#A3C1AD", "#EFBBCC", "#FFFF99",
+    "#FFEF00", "#FF0800", "#E4717A", "#00BFFF", "#592720", "#C41E3A", "#00CC99", "#960018", "#D70040", "#FFA6C9", "#56A0D3", "#ED9121",
+    "#00563F", "#703642", "#C95A49", "#ACE1AF", "#007BA7", "#2F847C", "#B2FFFF", "#246BCE", "#DE3163", "#007BA7", "#2A52BE", "#6D9BC3",
+    "#1DACD6", "#007AA5", "#E03C31", "#F7E7CE", "#F1DDCF", "#36454F", "#232B2B", "#E68FAC", "#DFFF00", "#7FFF00", "#FFB7C5", "#954535",
+    "#DE6FA1", "#A8516E", "#AA381E", "#856088", "#FFB200", "#7B3F00", "	#D2691E", "#FFA700", "#98817B", "#E34234", "#CD607E"
+];
 const message = document.querySelector(".message");
 const gameMessage = document.querySelector(".game-message");
 const gamearea = document.querySelector(".gamearea");
